@@ -4,10 +4,20 @@ import {
   IonHeader,
   IonToolbar,
   IonTitle,
+  IonItem,
+  IonLabel,
+  IonDatetime,
 } from '@ionic/react';
-import React from 'react';
+import React, { useState } from 'react';
+import BiorhythmCard from './components/BiorhythmCard';
 
 function App() {
+  const[ name, setName ] = useState('');
+  const[ birthDate, setBirthDate ] = useState('');
+  const targetDate = new Date().toString();
+  
+  
+
   return (
     <IonApp>
       <IonHeader>
@@ -16,7 +26,12 @@ function App() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <p>Add some content here…</p>
+        <IonItem>
+          <IonLabel position="stacked">Date Of Birth:</IonLabel>
+          <IonDatetime displayFormat='D MMM YYYY' value={birthDate} onIonChange={(event)=>setBirthDate(event.detail.value)}/>
+        </IonItem>
+        <BiorhythmCard targetDate={targetDate}/>
+        
       </IonContent>
     </IonApp>
   );
