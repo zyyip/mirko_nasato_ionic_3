@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 import { calculateBiorhythms } from '../calculations';
 import BiorhythmChart from './BiorhythmChart';
+import '../css/BiorhythmCard.css';
 
 function formatDate(isoString){
     return dayjs(isoString).format('D MMM YYYY');
@@ -13,15 +14,15 @@ function BiorhythmCard({ birthDate, targetDate }){
   const {physical, emotional, intellectual} = calculateBiorhythms(birthDate, targetDate);
 
     return (
-        <IonCard class="ion-text-center">
+        <IonCard className="biorhythm-card ion-text-center">
           <IonCardHeader>
             <IonCardTitle>{formatDate(targetDate)}</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <BiorhythmChart targetDate={targetDate} birthDate={birthDate}/>
-            <p>Physical: {physical.toFixed(4)}</p>
-            <p>Emotional: {emotional.toFixed(4)}</p>
-            <p>Intellectual: {intellectual.toFixed(4)}</p>
+            <p className="physical">Physical: {physical.toFixed(4)}</p>
+            <p className="emotional">Emotional: {emotional.toFixed(4)}</p>
+            <p className="intellectual">Intellectual: {intellectual.toFixed(4)}</p>
           </IonCardContent>
         </IonCard>
     );
