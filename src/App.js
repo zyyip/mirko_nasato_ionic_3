@@ -21,7 +21,7 @@ function App() {
   return (
     <IonApp>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color="primary">
           <IonTitle>My App</IonTitle>
         </IonToolbar>
       </IonHeader>
